@@ -69,3 +69,8 @@ d----           8/13/2023 10:37 AM                templates
 -a---           8/15/2023  1:07 PM            345 urls.py
 -a---           8/17/2023 10:08 AM           1776 views.py
 ```
+
+## 待办
+
+- 只有startup.py和mailqq.py是有用的，tasks.py和sendmail.py等老旧代码得删掉。
+- ctrl+c优雅退出不知道为啥，capture不了，想办法改进
