@@ -1,0 +1,16 @@
+<!-- events_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events List</title>
+</head>
+<body>
+    <h1>Events List</h1>
+    <ul>
+        {% for event in events %}
+	<li>{{ event.event_time }}:  {{event.detail}} <br> &gt; {{ event.message.send_time }} - {{ event.message.email_content }} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

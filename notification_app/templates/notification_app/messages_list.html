@@ -1,0 +1,16 @@
+<!-- messages_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages List</title>
+</head>
+<body>
+    <h1>Messages List</h1>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.send_time }}: {{ message.email_content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

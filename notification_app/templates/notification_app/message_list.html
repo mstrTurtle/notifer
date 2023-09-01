@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message List</title>
+</head>
+<body>
+    <h1>Message List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>PK</th>
+                <th>Send Time</th>
+                <th>Email Title</th>
+                <th>Email Content</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in page_obj %}
+            <tr>
+                <td>{{ message.pk }}</td>
+                <td>{{ message.send_time }}</td>
+                <td>{{ message.email_title }}</td>
+                <td>{{ message.email_content }}</td>
+		<td>{{ message.status }} ( <a href='../cancel?pk={{message.pk}}'>cancel</a> )</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add New Message</h2>
+    <form method="post">
+        {% csrf_token %}
+	<table>
+        {{ form.as_table }}
+	</table>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current-page">{{ page_obj.number }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
+
